@@ -38,7 +38,7 @@ module MetasploitModule
     bytes = uuid.to_raw.chars.map { |c| '\x%.2x' % c.ord }.join('')
     met = met.sub("\"PAYLOAD_UUID\", \"\"", "\"PAYLOAD_UUID\", \"#{bytes}\"")
 
-    met.gsub!(/#.*$/, '') 
+    met.gsub!(/#.*$/, '')
     met = Rex::Text.compress(met)
     return met
   end
